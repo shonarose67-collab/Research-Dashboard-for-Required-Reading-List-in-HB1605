@@ -1,0 +1,191 @@
+/* ========================================
+   HB 1605 Custom Styles - Enhanced & Accessible
+   ======================================== */
+
+/* Body & Print Styles */
+body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+}
+
+/* Navigation Links */
+.nav-link {
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    transform: translateX(5px);
+}
+
+/* Section Cards */
+.section-card {
+    break-inside: avoid;
+}
+
+/* Findings Item Styling */
+.findings-item {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.findings-item::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #2c5282;
+    font-weight: bold;
+}
+
+/* Research Item Styling */
+.research-item {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.research-item::before {
+    content: "📄";
+    position: absolute;
+    left: 0;
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .nav-link {
+        transition: none;
+    }
+    
+    .nav-link:hover {
+        transform: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none;
+    }
+    
+    header {
+        page-break-after: avoid;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+    }
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .quick-nav {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .quick-nav.open {
+        max-height: 500px;
+    }
+}
+
+/* Keyboard Navigation Focus Styles */
+a:focus,
+button:focus {
+    outline: 2px solid #2c5282;
+    outline-offset: 2px;
+}
+
+/* Skip to Content Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #2c5282;
+    color: white;
+    padding: 8px 12px;
+    z-index: 100;
+    text-decoration: none;
+    border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* External Link Indicator */
+a[target="_blank"]::after {
+    content: "";
+    margin-left: 4px;
+}
+
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Link Styles */
+a {
+    color: #2c5282;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Button Styles */
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Footer */
+footer {
+    margin-top: 2rem;
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 1.875rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.125rem;
+    }
+}
+
+/* Print Optimizations */
+@media print {
+    a[href]:after {
+        content: "";
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .section-card {
+        page-break-inside: avoid;
+        border: 1px solid #ccc;
+    }
+}
